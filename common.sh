@@ -12,6 +12,7 @@ mkdir -p $LOG_FOLDER
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 DIR_PATH=$PWD
 MONGODB_HOST=mongodb.vinaymukkamalla.fun
+MYSQL_HOST=mysql.vinaymukkamalla.fun
 
 echo " script started execution at : $(date)" | tee -a $LOG_FILE
 
