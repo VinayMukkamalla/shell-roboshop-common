@@ -9,7 +9,7 @@ java_setup
 service_setup
 
 mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e 'use cities' &>>$LOG_FILE
-VALIDATE $? " setting root Roboshop user for mysql"
+
 
 if [ $? -ne 0 ]; then
     mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOG_FILE
