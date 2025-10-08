@@ -63,6 +63,22 @@ service_setup(){
 
 }
 
+java_setup(){
+    dnf install maven -y &>>$LOG_FILE
+    VALIDATE $? "Installing maven"
+    mvn clean package &>>$LOG_FILE
+    VALIDATE $? "packaging application in target directory"
+    mv target/shipping-1.0.jar shipping.jar &>>$LOG_FILE
+    VALIDATE $? " renaming jar application file"
+}
+
+python_setup(){
+    dnf install python3 gcc python3-devel -y &>>$LOG_FILE
+    VALIDATE $? "Installing python"
+    pip3 install -r requirements.txt &>>$LOG_FILE
+    VALIDATE $? "installing application dependencies"
+}
+
 app_restart(){
     systemctl restart $app_name
     VALIDATE $? "restarted $app_name service"
