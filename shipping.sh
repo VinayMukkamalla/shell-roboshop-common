@@ -8,6 +8,10 @@ app_setup
 java_setup
 service_setup
 
+
+dnf install mysql -y &>>$LOG_FILE
+VALIDATE $? " installing mysql"
+
 mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e 'use cities' &>>$LOG_FILE
 
 
